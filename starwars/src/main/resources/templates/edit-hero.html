@@ -1,0 +1,8 @@
+<!--/*@thymesVar id="hero" type="pl.fyrodems.starwars.entity.hero.Hero"*/-->
+<form action="#" th:action="@{/edithero/{id}(id=${hero.id})}" th:object="${hero}" method="post">
+
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name">
+
+    <input type="submit" value="Edit Hero"/>
+</form>
