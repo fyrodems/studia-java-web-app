@@ -1,8 +1,17 @@
 <!--/*@thymesVar id="hero" type="pl.fyrodems.starwars.entity.hero.Hero"*/-->
-<form action="#" th:action="@{/addhero}" th:object="${hero}" method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="#" th:action="@{/addhero}" th:object="${hero}" method="post">
 
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Darth Jar Jar">
+        <label for="name">Name</label>
+        <input type="text" th:field="*{name}" id="name" placeholder="Darth Jar Jar">
 
-    <input type="submit" value="Add Hero"/>
-</form>
+        <input type="submit" value="Add Hero"/>
+    </form>
+</body>
+</html>

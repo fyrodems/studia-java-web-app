@@ -1,4 +1,12 @@
-<div th:switch="${heroes}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Title</title>
+</head>
+<body>
+    <div th:switch="${heroes}">
     <h2 th:case="null">
         No heroes in db.
     </h2>
@@ -8,26 +16,26 @@
 
         <table>
             <thead>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                </tr>
+            <tr>
+                <th>
+                    Name
+                </th>
+            </tr>
             </thead>
 
             <tbody>
-                <tr th:each="hero : ${heroes}">
-                    <td th:text="${hero.name}">
-                    </td>
+            <tr th:each="hero : ${heroes}">
+                <td th:text="${hero.name}">
+                </td>
 
-                    <td>
-                        <a th:href="@{/edithero/{id}(id=${hero.id})}">Edit</a>
-                    </td>
+                <td>
+                    <a th:href="@{/edithero/{id}(id=${hero.id})}">Edit</a>
+                </td>
 
-                    <td>
-                        <a th:href="@{/delete/{id}(id=${hero.id})}">Delete</a>
-                    </td>
-                </tr>
+                <td>
+                    <a th:href="@{/delete/{id}(id=${hero.id})}">Delete</a>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -36,3 +44,7 @@
         <a href="/addhero">Add new hero</a>
     </div>
 </div>
+</body>
+</html>
+
+
