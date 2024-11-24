@@ -31,7 +31,7 @@ public class StarwarsApplication {
 		Hero hero1 = new Hero();
 		hero1.setName("Łukasz Niebołaz");
 		hero1.setAlignment(1);
-		hero1.setRole(1);
+		hero1.setRole(2);
 		hero1.setCool(false);
 
 		Hero hero2 = new Hero();
@@ -43,7 +43,7 @@ public class StarwarsApplication {
 		Hero hero3 = new Hero();
 		hero3.setName("Henryk Samotny");
 		hero3.setAlignment(1);
-		hero3.setRole(1);
+		hero3.setRole(3);
 		hero3.setCool(true);
 
 		heroes.add(hero1);

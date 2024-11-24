@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/table.css">
-
     <title>Heroes</title>
 </head>
 <body>
@@ -31,16 +30,17 @@
             </thead>
 
             <tbody>
-            <tr class="hero-row" th:each="hero : ${heroes}">
+            <tr class="hero-row" th:each="hero : ${heroes}"
+                th:with="alignmentText=${hero.alignment == 1 ? 'Light side' : 'Dark side'},
+                         alignmentClass=${hero.alignment == 1 ? 'light-alignment' : 'dark-alignment'},
+                         roleText=${hero.role == 1 ? 'Attacker' : hero.role == 2 ? 'Tank' : hero.role == 3 ? 'Support' : 'Healer'}">
                 <td class="hero-name" th:text="${hero.name}"></td>
-                <td class="hero-alignment light-alignment" th:if="${hero.alignment == 1}">
-                    Light side
+                <td class="hero-alignment" th:classappend="${alignmentClass}" th:text="${alignmentText}"></td>
+                <td class="hero-role" th:text="${roleText}"></td>
+                <td class="hero-isCool">
+                    <span th:if="${hero.isCool}">&#x2705;</span>
+                    <span th:if="${!hero.isCool}">&#x274C;</span>
                 </td>
-                <td class="hero-alignment dark-alignment" th:if="${hero.alignment == 2}">
-                    Dark side
-                </td>
-                <td class="hero-role" th:text="${hero.role}"></td>
-                <td class="hero-isCool" th:text="${hero.isCool}"></td>
                 <td>
                     <a class="edit-link" th:href="@{/edithero/{id}(id=${hero.id})}">Edit</a>
                 </td>
