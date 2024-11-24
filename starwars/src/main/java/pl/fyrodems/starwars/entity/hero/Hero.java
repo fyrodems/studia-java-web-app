@@ -30,11 +30,7 @@ public class Hero {
 
     @Getter
     @Setter
-    private int membership;
-
-    @Getter
-    @Setter
-    private int isCool;
+    private boolean cool;
 
     public Hero() {
     }

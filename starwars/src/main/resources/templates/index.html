@@ -9,12 +9,15 @@
 </head>
 <body>
 <div class="container" th:switch="${heroes}">
-    <h2 class="no-heroes" th:case="null">
+    <h1 class="no-heroes" th:case="null">
         No heroes in db
-    </h2>
+    </h1>
 
     <div class="heroes-section" th:case="*">
-        <h2 class="heroes-title">Heroes</h2>
+        <div class="header-wrapper">
+            <h1 class="heroes-title">Heroes</h1>
+            <a href="/addhero" class="button add-hero-button">Add new hero</a>
+        </div>
 
         <table class="heroes-table">
             <thead>
@@ -22,6 +25,7 @@
                 <th class="table-header">Name</th>
                 <th class="table-header">Alignment</th>
                 <th class="table-header">Role</th>
+                <th class="table-header">Cool</th>
                 <th class="table-header" colspan="2">Actions</th>
             </tr>
             </thead>
@@ -30,12 +34,13 @@
             <tr class="hero-row" th:each="hero : ${heroes}">
                 <td class="hero-name" th:text="${hero.name}"></td>
                 <td class="hero-alignment light-alignment" th:if="${hero.alignment == 1}">
-                    LIGHT
+                    Light side
                 </td>
                 <td class="hero-alignment dark-alignment" th:if="${hero.alignment == 2}">
-                    DARK
+                    Dark side
                 </td>
                 <td class="hero-role" th:text="${hero.role}"></td>
+                <td class="hero-isCool" th:text="${hero.isCool}"></td>
                 <td>
                     <a class="edit-link" th:href="@{/edithero/{id}(id=${hero.id})}">Edit</a>
                 </td>
@@ -46,8 +51,6 @@
             </tbody>
         </table>
     </div>
-
-    <a href="/addhero" class="button add-hero-button">Add new hero</a>
 </div>
 </body>
 </html>

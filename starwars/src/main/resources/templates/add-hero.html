@@ -3,29 +3,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/form.css">
     <title>Add Hero</title>
 </head>
 <body>
-<form action="#" th:action="@{/addhero}" th:object="${hero}" method="post">
+<form class="container form-hero" action="#" th:action="@{/addhero}" th:object="${hero}" method="post">
 
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Darth Jar Jar">
+    <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input required type="text" class="form-input" th:field="*{name}" id="name" placeholder="Darth Jar Jar">
+    </div>
 
-    <label for="alignment">Alignment</label>
-    <select th:field="*{alignment}" id="alignment">
-        <option th:value="1">Light Side</option>
-        <option th:value="2">Dark Side</option>
-    </select>
+    <div class="form-group">
+        <label for="alignment" class="form-label">Alignment</label>
+        <select class="form-select" th:field="*{alignment}" id="alignment">
+            <option th:value="1">Light Side</option>
+            <option th:value="2">Dark Side</option>
+        </select>
+    </div>
 
-    <label for="role">Role</label>
-    <select th:field="*{role}" id="role">
-        <option th:value="1">Attacker</option>
-        <option th:value="2">Tank</option>
-        <option th:value="3">Support</option>
-        <option th:value="4">Healer</option>
-    </select>
+    <div class="form-group">
+        <label for="role" class="form-label">Role</label>
+        <select class="form-select" th:field="*{role}" id="role">
+            <option th:value="1">Attacker</option>
+            <option th:value="2">Tank</option>
+            <option th:value="3">Support</option>
+            <option th:value="4">Healer</option>
+        </select>
+    </div>
 
-    <input class="button" type="submit" value="Add Hero"/>
+    <div class="form-group form-checkbox">
+        <label for="isCool" class="form-label">Is cool</label>
+        <input type="checkbox" class="form-checkbox-input" th:field="*{cool}" name="isCool" id="isCool">
+    </div>
+
+    <div class="form-group">
+        <input class="button form-submit" type="submit" value="Add Hero"/>
+    </div>
 </form>
 </body>
 </html>
