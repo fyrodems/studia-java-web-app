@@ -20,7 +20,22 @@ public class Hero {
     @Setter
     private String name;
 
-    public Hero() {
+    @Getter
+    @Setter
+    private int alignment;
 
+    @Getter
+    @Setter
+    private int role;
+
+    @Getter
+    @Setter
+    private int membership;
+
+    @Getter
+    @Setter
+    private int isCool;
+
+    public Hero() {
     }
 }

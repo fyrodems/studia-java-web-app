@@ -11,7 +11,23 @@
         <label for="name">Name</label>
         <input type="text" th:field="*{name}" id="name">
 
-        <input type="submit" value="Edit Hero"/>
+        <label for="alignment">Alignment</label>
+        <select th:field="*{alignment}" id="alignment">
+            <option th:value="1" th:text="LIGHT">Light Side</option>
+            <option th:value="2" th:text="DARK">Dark Side</option>
+        </select>
+
+        <label for="role">Role</label>
+        <select th:field="*{role}" id="role">
+            <option th:value="1">Attacker</option>
+            <option th:value="2">Tank</option>
+            <option th:value="3">Support</option>
+            <option th:value="4">Healer</option>
+        </select>
+
+
+    <input class="button" type="submit" value="Edit Hero"/>
+
     </form>
 </body>
 </html>

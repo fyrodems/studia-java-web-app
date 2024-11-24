@@ -23,7 +23,8 @@ public class HeroController {
     }
 
     @GetMapping("/addhero")
-    public String addHero(Hero hero) {
+    public String addHero(Model model) {
+        model.addAttribute("hero", new Hero());
         return "add-hero";
     }
 

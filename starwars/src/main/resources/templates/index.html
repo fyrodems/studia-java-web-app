@@ -3,48 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/styles.css">
-    <title>Title</title>
+    <link rel="stylesheet" href="/table.css">
+
+    <title>Heroes</title>
 </head>
 <body>
-    <div th:switch="${heroes}">
-    <h2 th:case="null">
-        No heroes in db.
+<div class="container" th:switch="${heroes}">
+    <h2 class="no-heroes" th:case="null">
+        No heroes in db
     </h2>
 
-    <div th:case="*">
-        <h2>Heroes</h2>
+    <div class="heroes-section" th:case="*">
+        <h2 class="heroes-title">Heroes</h2>
 
-        <table>
+        <table class="heroes-table">
             <thead>
             <tr>
-                <th>
-                    Name
-                </th>
+                <th class="table-header">Name</th>
+                <th class="table-header">Alignment</th>
+                <th class="table-header">Role</th>
+                <th class="table-header" colspan="2">Actions</th>
             </tr>
             </thead>
 
             <tbody>
-            <tr th:each="hero : ${heroes}">
-                <td th:text="${hero.name}">
+            <tr class="hero-row" th:each="hero : ${heroes}">
+                <td class="hero-name" th:text="${hero.name}"></td>
+                <td class="hero-alignment light-alignment" th:if="${hero.alignment == 1}">
+                    LIGHT
                 </td>
-
-                <td>
-                    <a th:href="@{/edithero/{id}(id=${hero.id})}">Edit</a>
+                <td class="hero-alignment dark-alignment" th:if="${hero.alignment == 2}">
+                    DARK
                 </td>
-
+                <td class="hero-role" th:text="${hero.role}"></td>
                 <td>
-                    <a th:href="@{/delete/{id}(id=${hero.id})}">Delete</a>
+                    <a class="edit-link" th:href="@{/edithero/{id}(id=${hero.id})}">Edit</a>
+                </td>
+                <td>
+                    <a class="delete-link" th:href="@{/delete/{id}(id=${hero.id})}">Delete</a>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
 
-    <div>
-        <a href="/addhero">Add new hero</a>
-    </div>
+    <a href="/addhero" class="button add-hero-button">Add new hero</a>
 </div>
 </body>
 </html>
-
-

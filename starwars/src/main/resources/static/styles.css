@@ -1,3 +1,20 @@
 * {
-    background: darkcyan !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* button */
+.button {
+    display: block;
+    border: none;
+    background: #ffb67f;
+    border-radius: 1rem;
+    width: fit-content;
+    padding: 1rem 2rem;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    height: 100%;
 }
